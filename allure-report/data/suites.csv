@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","7456","Login to SauceDemo","chromium","2026-06-29","passed","2026-06-29","","saucedemo-login.spec.js","",""
+"","3339","Should connect to saucedemo Account","chromium","2026-06-30","passed","2026-06-30","","login-page.spec.js","",""
+"","4292","Should open and close the application saucedemo.com","chromium","2026-06-30","passed","2026-06-30","","login-page.spec.js","",""
+"","715","","chromium","2026-07-01","passed","2026-07-01","","10-formation-API.spec.js","",""

@@ -1,0 +1,4 @@
+[
+  { pUserName: 'hakim', pPassword: 'Test987' },
+  { pUserName: 'Julien', pPassword: 'Test123' }
+]

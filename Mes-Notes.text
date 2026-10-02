@@ -1,0 +1,10 @@
+------------------------------------------------------------------------------------
+Conventions de nommage JavaScript :
+Classe → PascalCase
+LoginPage
+variable / objet → camelCase
+loginPage
+------------------------------------------------------------------------------------
+Template literal + interpolation (${...})
+C'est une fonctionnalité JavaScript très courante, notamment pour construire des messages dynamiques, des URLs, 
+des logs et des erreurs.

@@ -1,0 +1,63 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 11-formation-csv.spec.js >> Should display the content of users-data.csv
+- Location: tests\11-formation-csv.spec.js:10:1
+
+# Error details
+
+```
+Error: locator.fill: value: expected string, got undefined
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]: Swag Labs
+  - generic [ref=e5]:
+    - generic [ref=e9]:
+      - textbox "Username" [ref=e11]
+      - textbox "Password" [ref=e13]
+      - button "Login" [ref=e15] [cursor=pointer]
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - heading "Accepted usernames are:" [level=4] [ref=e19]
+        - text: standard_user
+        - text: locked_out_user
+        - text: problem_user
+        - text: performance_glitch_user
+        - text: error_user
+        - text: visual_user
+      - generic [ref=e20]:
+        - heading "Password for all users:" [level=4] [ref=e21]
+        - text: secret_sauce
+```
+
+# Test source
+
+```ts
+  1  | import { test } from "@playwright/test";
+  2  | import fs from "fs";
+  3  | import { parse } from "csv-parse/sync";
+  4  | 
+  5  | const usersData = parse(fs.readFileSync("./tests/users-data.csv"), {
+  6  |   columns: true,
+  7  |   skip_empty_lines: true,
+  8  | });
+  9  | 
+  10 | test("Should display the content of users-data.csv", async ({ page }) => {
+  11 |   await page.goto("https://www.saucedemo.com/");
+  12 |   await page.pause();
+> 13 |   await page.getByPlaceholder("Username").fill(usersData[0].username);
+     |                                           ^ Error: locator.fill: value: expected string, got undefined
+  14 |   await page.getByPlaceholder("Password").fill(usersData[0].password);
+  15 |   await page.getByRole("button", { name: "Login" }).click({ timeout: 3000 });
+  16 | });
+  17 | 
+```
